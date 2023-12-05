@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Site Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .app {
+            display: grid;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+            "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+            sans-serif;
+            color: #1e272e;
+        }
+
+        main {
+            margin: 0 auto;
+            padding: 4rem;
+            max-width: 960px;
+        }
+
+        main > h2 {
+            font-size: 1.6rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        main > p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <main>
+        <h2>What is Lorem Ipsum?</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+        <h2>Where does it come from?</h2>
+        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
+            literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+            Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem
+            Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable
+            source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
+            of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular
+            during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+            section 1.10.32.</p>
+        <button class="lc_opener" onclick="window.leadCM.open();">OPEN</button>
+        <button>OPEN</button>
+    </main>
+</div>
+<script>
+    (function f() {
+        // если только локально сделать true
+        const ONLY_LOCAL = true;
+        const USE_TEST_SETTINGS = true;
+        const NO_REAL_CALLS = true;
+
+        // будет использоваться тестовое окружение если не ONLY_LOCAL
+        let widget_key = "f12860dd3274e8cd2d57d8d7b6df9c2f";
+        let base_url = "https://testapp.leadcm.com";
+
+        // start for test page
+        const lc_widget_key = window.location.search ?
+            window.location.search.match(/lc_widget_key=([^&]+)/) ?
+                window.location.search.match(/lc_widget_key=([^&]+)/)[1]
+                : null : null;
+        if (lc_widget_key) widget_key = lc_widget_key;
+
+
+        const lc_url = window.location.search ?
+            window.location.search.match(/lc_url=([^&]+)/) ?
+                window.location.search.match(/lc_url=([^&]+)/)[1]
+                : null : null;
+
+        if (lc_url) base_url = lc_url;
+
+        // noConsole console.log(base_url);
+
+        const leadCM = {
+            widget_key: widget_key,
+            visit_id: "",
+            // when defaults aren't set
+            settings_url: base_url + '/api/v1/ext/widget-settings/' + widget_key,
+            submit_url: base_url + '/api/v1/ext/add-call/',
+            time_available_url: base_url + '/api/v1/ext/widget-get-time-available/' + widget_key,
+            register_url: base_url + '/api/v1/ext/register-event/',
+            use_test_settings: USE_TEST_SETTINGS,
+            only_local: ONLY_LOCAL,
+            no_real_calls: NO_REAL_CALLS,
+            start_opened: false,
+        };
+
+        if (!widget_key && !leadCM.use_test_settings) return;
+        // end for test page
+
+        if (window.location.search && window.location.search.match(/testPage=1/)) {
+            leadCM.start_opened = true;
+            leadCM.use_test_settings = false;
+        }
+
+        // start for chrome extension
+        const el = document.createElement('meta');
+        el.id = "leadCM_meta";
+        el.name = "leadCM_meta";
+        el.content = JSON.stringify(leadCM);
+        // noinspection JSCheckFunctionSignatures
+        document.head.appendChild(el);
+        // end for chrome extension
+
+        window.leadCM = leadCM;
+
+        const script_url = ONLY_LOCAL ? 'main.js' : base_url + '/js/icallback.js';
+
+        const em = document.createElement('script');
+        em.type = 'text/javascript';
+        em.async = true;
+        em.src = script_url + '?v=' + Math.random() + '&key=' + widget_key
+            + '&uri=' + encodeURIComponent(window.location.href);
+        const s = document.getElementsByTagName('script')[0];
+        // noinspection JSCheckFunctionSignatures
+        s.parentNode.insertBefore(em, s);
+    })();
+</script>
+</body>
+</html>
