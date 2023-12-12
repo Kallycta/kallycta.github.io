@@ -157,7 +157,7 @@ const checkPhone = (input) => {
 const validateForm = () => {
     const validateResult = [
         // checkRequired([email, password, passwordConfirmation]),
-        checkRequired([email, password, companyName, fullName, users]),
+        checkRequired([email, companyName, fullName, users]),
         checkLength(password, 8, 30),
         checkEmail(email),
         // checkPasswordMatch(passwordConfirmation, password),
