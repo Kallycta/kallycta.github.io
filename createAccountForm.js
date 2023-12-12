@@ -34,7 +34,33 @@ if (agree) {
 }
 
 const showError = (input, msg) => {
-    console.log(input)
+    console.log(input.tagName)
+
+    if(input.tagName === 'select') {
+    const formControl = input.parentElement.querySelector(". dropdown");
+        console.log(formControl)
+    formControl.classList.add("error");
+    input.classList.add("error");
+    if (formControl) {
+        formControl.classList.add("error");
+
+        const small = formControl.parentElement.querySelector(".extra");
+        if (small) {
+            small.style.display = "block";
+            small.textContent = msg;
+        } else {
+            const smallParent = formControl.parentElement;
+            const smallPhone = smallParent.parentElement.querySelector(".extra");
+            if (smallPhone) {
+                smallPhone.style.display = "block";
+                smallPhone.textContent = 'Phone not valid';
+            }
+        }
+        const checkbox = formControl.querySelector(".w-checkbox-input");
+        if (checkbox) {
+            checkbox.classList.add("error");
+        }
+    } else {
     const formControl = input.parentElement;
     formControl.classList.add("error");
     input.classList.add("error");
@@ -57,6 +83,7 @@ const showError = (input, msg) => {
         if (checkbox) {
             checkbox.classList.add("error");
         }
+    }
     }
 };
 
