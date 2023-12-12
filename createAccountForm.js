@@ -5,6 +5,7 @@ const email = document.querySelector("#email-2");
 const companyName = document.querySelector("#Company-name-2");
 const phone = document.querySelector("#phone_number-2");
 const agree = document.querySelector("#terms");
+const selectedState = document.querySelector("#select-field-2")
 
 const errorMes = document.querySelector(".error-mes");
 const errorTextMes = document.querySelector("#text-error-message");
@@ -103,6 +104,16 @@ function checkRequired(inputArr) {
         }
     });
     return check
+}
+
+function checkSelectedState(select) {
+    if(select && select?.value) {
+        if(select.value === 'State') {
+            showError(select, 'Please choose a state from the dropdown list.');
+    } else {
+        showSuccess(select);
+        }
+        
 }
 
 // const checkPasswordMatch = (input1, input2) => {
