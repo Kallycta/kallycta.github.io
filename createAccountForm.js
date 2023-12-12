@@ -171,6 +171,7 @@ const validateForm = () => {
         // checkRequired([email, password, passwordConfirmation]),
         checkRequired([email, companyName, fullName, users]),
         checkEmail(email),
+        checkSelectedState(selectedState),
         // checkPasswordMatch(passwordConfirmation, password),
         checkPhone(phone),
         checkAgree(agree)
