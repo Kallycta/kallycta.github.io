@@ -58,6 +58,8 @@ const showError = (input, msg) => {
 };
 
 function showSuccess(input) {
+    console.log(input)
+    console.log(input.parentElement)
     const formControl = input.parentElement;
     if (formControl) {
         input.classList.remove('error');
