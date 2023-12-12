@@ -158,7 +158,6 @@ const validateForm = () => {
     const validateResult = [
         // checkRequired([email, password, passwordConfirmation]),
         checkRequired([email, companyName, fullName, users]),
-        checkLength(password, 8, 30),
         checkEmail(email),
         // checkPasswordMatch(passwordConfirmation, password),
         checkPhone(phone),
