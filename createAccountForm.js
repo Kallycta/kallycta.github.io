@@ -34,6 +34,7 @@ if (agree) {
 }
 
 const showError = (input, msg) => {
+    console.log(input)
     const formControl = input.parentElement;
     formControl.classList.add("error");
     input.classList.add("error");
@@ -113,7 +114,6 @@ function checkSelectedState(select) {
         } else {
             showSuccess(select);
         }
-
     }
 }
 
