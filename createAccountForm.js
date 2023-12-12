@@ -271,14 +271,14 @@ const showError = (input, msg) => {
             formDataObj['utm_medium'] = utm_mediumFromLocalStorage
         }
 
-        // const paramPartner = window.localStorage.getItem('paramPartner');
-        // if (paramPartner) {
-        //     formDataObj['Affiliate'] = paramPartner;
-        //     formDataObj['utm_source'] = 'Affiliate'
-        //     formDataObj['utm_campaign'] = paramPartner
-        // } else {
-        //     // console.log('no paramPartner')
-        // }
+        const paramPartner = window.localStorage.getItem('paramPartner');
+        if (paramPartner) {
+            formDataObj['Affiliate'] = paramPartner;
+            formDataObj['utm_source'] = 'Affiliate'
+            formDataObj['utm_campaign'] = paramPartner
+        } else {
+            // console.log('no paramPartner')
+        }
 
 
         const sendObject = `${JSON.stringify(formDataObj).substr(0, JSON.stringify(formDataObj).length - 1)}` + `, "terms": ${agree.checked} }`
