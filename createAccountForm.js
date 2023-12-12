@@ -9,12 +9,13 @@ const agree = document.querySelector("#terms");
 const errorMes = document.querySelector(".error-mes");
 const errorTextMes = document.querySelector("#text-error-message");
 
-const name = document.querySelector("#name");
+// const name = document.querySelector("#name");
 const affiliate = document.querySelector("#Affiliate-2");
-const password = document.querySelector("#password");
+console.log(affiliate)
+// const password = document.querySelector("#password");
 // const passwordConfirmation = document.querySelector("#confirm_password");
 
-const promoCode = document.querySelector("#promo_code-2");
+// const promoCode = document.querySelector("#promo_code-2");
 
 
 
