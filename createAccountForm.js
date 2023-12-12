@@ -37,112 +37,113 @@ const showError = (input, msg) => {
     console.log(input.tagName)
 
     if(input.tagName === 'select') {
-    const formControl = input.parentElement.querySelector(". dropdown");
+        const formControl = input.parentElement.querySelector(". dropdown");
         console.log(formControl)
-    formControl.classList.add("error");
-    input.classList.add("error");
-    if (formControl) {
         formControl.classList.add("error");
+        input.classList.add("error");
+        if (formControl) {
+            formControl.classList.add("error");
 
-        const small = formControl.parentElement.querySelector(".extra");
-        if (small) {
-            small.style.display = "block";
-            small.textContent = msg;
-        } else {
-            const smallParent = formControl.parentElement;
-            const smallPhone = smallParent.parentElement.querySelector(".extra");
-            if (smallPhone) {
-                smallPhone.style.display = "block";
-                smallPhone.textContent = 'Phone not valid';
+            const small = formControl.parentElement.querySelector(".extra");
+            if (small) {
+                small.style.display = "block";
+                small.textContent = msg;
+            } else {
+                const smallParent = formControl.parentElement;
+                const smallPhone = smallParent.parentElement.querySelector(".extra");
+                if (smallPhone) {
+                    smallPhone.style.display = "block";
+                    smallPhone.textContent = 'Phone not valid';
+                }
             }
-        }
-        const checkbox = formControl.querySelector(".w-checkbox-input");
-        if (checkbox) {
-            checkbox.classList.add("error");
+            const checkbox = formControl.querySelector(".w-checkbox-input");
+            if (checkbox) {
+                checkbox.classList.add("error");
+            }
         }
     } else {
-    const formControl = input.parentElement;
-    formControl.classList.add("error");
-    input.classList.add("error");
-    if (formControl) {
-        formControl.classList.add("error");
+            const formControl = input.parentElement;
+            formControl.classList.add("error");
+            input.classList.add("error");
+            if (formControl) {
+                formControl.classList.add("error");
 
-        const small = formControl.parentElement.querySelector(".extra");
-        if (small) {
-            small.style.display = "block";
-            small.textContent = msg;
-        } else {
-            const smallParent = formControl.parentElement;
-            const smallPhone = smallParent.parentElement.querySelector(".extra");
-            if (smallPhone) {
-                smallPhone.style.display = "block";
-                smallPhone.textContent = 'Phone not valid';
+                const small = formControl.parentElement.querySelector(".extra");
+                if (small) {
+                    small.style.display = "block";
+                    small.textContent = msg;
+                } else {
+                    const smallParent = formControl.parentElement;
+                    const smallPhone = smallParent.parentElement.querySelector(".extra");
+                    if (smallPhone) {
+                        smallPhone.style.display = "block";
+                        smallPhone.textContent = 'Phone not valid';
+                    }
+                }
+                const checkbox = formControl.querySelector(".w-checkbox-input");
+                if (checkbox) {
+                    checkbox.classList.add("error");
+                }
             }
         }
-        const checkbox = formControl.querySelector(".w-checkbox-input");
-        if (checkbox) {
-            checkbox.classList.add("error");
-        }
-    }
-    }
-};
+    };
 
-function showSuccess(input) {
-    console.log(input)
-    console.log(input.parentElement)
-    const formControl = input.parentElement;
-    if (formControl) {
-        input.classList.remove('error');
-        formControl.classList.remove('error');
-        const small = formControl.parentElement.querySelector(".extra");
-        if (small) {
-            small.style.display = "none";
-        } else {
-            const smallParent = formControl.parentElement;
-            const smallPhone = smallParent.parentElement.querySelector(".extra");
-            if (smallPhone) {
-                smallPhone.style.display = "none";
+    function showSuccess(input) {
+        console.log(input)
+        console.log(input.parentElement)
+        const formControl = input.parentElement;
+        if (formControl) {
+            input.classList.remove('error');
+            formControl.classList.remove('error');
+            const small = formControl.parentElement.querySelector(".extra");
+            if (small) {
+                small.style.display = "none";
+            } else {
+                const smallParent = formControl.parentElement;
+                const smallPhone = smallParent.parentElement.querySelector(".extra");
+                if (smallPhone) {
+                    smallPhone.style.display = "none";
+                }
             }
         }
     }
-}
 
 //check email is valid
-function checkEmail(input) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (re.test(input.value.trim())) {
-        showSuccess(input)
-        return true
-    } else {
-        showError(input, 'Email is not invalid');
-        return false
+    function checkEmail(input) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (re.test(input.value.trim())) {
+            showSuccess(input)
+            return true
+        } else {
+            showError(input, 'Email is not invalid');
+            return false
+        }
     }
-}
 
 
 //checkRequired fields
-function checkRequired(inputArr) {
-    let check = true
-    inputArr.forEach(function(input) {
-        if (input && (input.value !== undefined) && (input.value.trim() === '')) {
-            showError(input, `${getFieldName(input)} is required`)
-            check = false
-        } else {
-            showSuccess(input);
-        }
-    });
-    return check
-}
+    function checkRequired(inputArr) {
+        let check = true
+        inputArr.forEach(function(input) {
+            if (input && (input.value !== undefined) && (input.value.trim() === '')) {
+                showError(input, `${getFieldName(input)} is required`)
+                check = false
+            } else {
+                showSuccess(input);
+            }
+        });
+        return check
+    }
 
-function checkSelectedState(select) {
-    if (select && select?.value) {
-        if (select.value === 'State') {
-            showError(select, 'Please choose a state from the dropdown list.');
-        } else {
-            showSuccess(select);
+    function checkSelectedState(select) {
+        if (select && select?.value) {
+            if (select.value === 'State') {
+                showError(select, 'Please choose a state from the dropdown list.');
+            } else {
+                showSuccess(select);
+            }
         }
     }
-}
 
 // const checkPasswordMatch = (input1, input2) => {
 //     if (input1.value !== input2.value) {
