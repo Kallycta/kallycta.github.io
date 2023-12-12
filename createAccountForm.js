@@ -1,14 +1,22 @@
-const form = document.querySelector("#signup-form");
-const email = document.querySelector("#email-2");
+const form = document.querySelector("#create-account-form");
+const users = document.querySelector('#Users');
+const fullName = document.querySelector('#Full-name'); 
+const email = document.querySelector("#email-2"); 
+const companyName = document.querySelector("#Company-name-2");
+const phone = document.querySelector("#phone_number-2");
+const agree = document.querySelector("#terms");
+
+const errorMes = document.querySelector(".error-mes");
+const errorTextMes = document.querySelector("#text-error-message");
+
 const name = document.querySelector("#name");
 const affiliate = document.querySelector("#Affiliate-2");
 const password = document.querySelector("#password");
 // const passwordConfirmation = document.querySelector("#confirm_password");
-const phone = document.querySelector("#phone_number-2");
+
 const promoCode = document.querySelector("#promo_code-2");
-const agree = document.querySelector("#terms");
-const errorMes = document.querySelector(".error-mes");
-const errorTextMes = document.querySelector("#text-error-message");
+
+
 
 if (agree) {
     agree.addEventListener('click', () => {
@@ -147,7 +155,7 @@ const checkPhone = (input) => {
 const validateForm = () => {
     const validateResult = [
         // checkRequired([email, password, passwordConfirmation]),
-        checkRequired([email, password, name]),
+        checkRequired([email, password, companyName, fullName, users]),
         checkLength(password, 8, 30),
         checkEmail(email),
         // checkPasswordMatch(passwordConfirmation, password),
@@ -162,7 +170,8 @@ form.addEventListener("submit", function(e) {
     e.preventDefault();
     e.stopPropagation();
     if (validateForm()) {
-        sendData()
+        // sendData()
+        console.log('valide form')
     } else {
         console.log('error')
     }
@@ -219,14 +228,14 @@ function sendData() {
         formDataObj['utm_medium'] = utm_mediumFromLocalStorage
     }
 
-    const paramPartner = window.localStorage.getItem('paramPartner');
-    if (paramPartner) {
-        formDataObj['Affiliate'] = paramPartner;
-        formDataObj['utm_source'] = 'Affiliate'
-        formDataObj['utm_campaign'] = paramPartner
-    } else {
-        // console.log('no paramPartner')
-    }
+    // const paramPartner = window.localStorage.getItem('paramPartner');
+    // if (paramPartner) {
+    //     formDataObj['Affiliate'] = paramPartner;
+    //     formDataObj['utm_source'] = 'Affiliate'
+    //     formDataObj['utm_campaign'] = paramPartner
+    // } else {
+    //     // console.log('no paramPartner')
+    // }
 
 
     const sendObject = `${JSON.stringify(formDataObj).substr(0, JSON.stringify(formDataObj).length - 1)}` + `, "terms": ${agree.checked} }`
