@@ -97,7 +97,8 @@ const showError = (input, msg) => {
     };
 
     function showSuccess(input) {
-            if(input.tagName === 'select') {
+        if(input) {
+                    if(input.tagName === 'select') {
             console.log(input)
         const formControl = parentSelect;
         if (formControl) {
@@ -134,6 +135,8 @@ const showError = (input, msg) => {
             }
         }
             }
+        }
+
 
     }
 
