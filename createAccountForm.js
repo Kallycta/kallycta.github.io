@@ -96,6 +96,25 @@ const showError = (input, msg) => {
     };
 
     function showSuccess(input) {
+            if(input.tagName === 'select') {
+            console.log(input)
+        const formControl = parentSelect;
+        if (formControl) {
+            input.classList.remove('error');
+            formControl.classList.remove('error');
+            const small = formControl.parentElement.querySelector(".extra");
+            if (small) {
+                small.style.display = "none";
+            } else {
+                const smallParent = formControl.parentElement;
+                const smallPhone = smallParent.parentElement.querySelector(".extra");
+                if (smallPhone) {
+                    smallPhone.style.display = "none";
+                }
+            }
+        }
+
+} else {
         console.log(input)
         console.log(input.parentElement)
         const formControl = input.parentElement;
@@ -113,6 +132,8 @@ const showError = (input, msg) => {
                 }
             }
         }
+            }
+
     }
 
 //check email is valid
