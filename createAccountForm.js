@@ -241,6 +241,7 @@ const showError = (input, msg) => {
             checkPhone(phone),
             checkAgree(agree)
         ]
+        console.log(validateResult)
         return validateResult.every(v => v === true)
     };
 
