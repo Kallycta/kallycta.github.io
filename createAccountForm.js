@@ -272,7 +272,14 @@ const showError = (input, msg) => {
 
 
         FD.delete("terms")
-        FD.forEach((value, key) => (formDataObj[key] = value));
+        FD.forEach((value, key) => {
+            if(formDataObj[key] === 'state') {
+                 formDataObj[key] = key
+            } else {
+                 formDataObj[key] = value
+            }
+           
+        });
          FD.forEach((value, key) => (console.log(value, key)));
         if (window.internationalNumber) {
             // console.log('window.internationalNumber', window.internationalNumber)
