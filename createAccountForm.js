@@ -213,7 +213,7 @@ const showError = (input, msg) => {
         e.preventDefault();
         e.stopPropagation();
         if (validateForm()) {
-            // sendData()
+            sendData()
             console.log('valide form')
         } else {
             console.log('error')
@@ -226,18 +226,17 @@ const showError = (input, msg) => {
         const XHR = new XMLHttpRequest();
         const FD = new FormData(form);
         const formDataObj = {};
-        const promo = FD.get("promo_code");
-        if (!promo) FD.set("promo_code", '')
-        if (window.selectedCountryCode) {
-            // console.log('window.selectedCountryCode', window.selectedCountryCode)
-            formDataObj['country_code'] = window.selectedCountryCode;
-        } else {
-            // console.log('no window.selectedCountryCode', window.selectedCountryCode)
-        }
+        // if (window.selectedCountryCode) {
+        //     // console.log('window.selectedCountryCode', window.selectedCountryCode)
+        //     formDataObj['country_code'] = window.selectedCountryCode;
+        // } else {
+        //     // console.log('no window.selectedCountryCode', window.selectedCountryCode)
+        // }
 
 
         FD.delete("terms")
         FD.forEach((value, key) => (formDataObj[key] = value));
+         FD.forEach((value, key) => (console.log(value, key);
         if (window.internationalNumber) {
             // console.log('window.internationalNumber', window.internationalNumber)
             formDataObj['phone_number'] = window.internationalNumber;
@@ -245,40 +244,40 @@ const showError = (input, msg) => {
             // console.log('no window.internationalNumber', window.internationalNumber)
         }
 
-        const utm_sourceFromLocalStorage = window.localStorage.getItem('utm_source')
-        const utm_campaignFromLocalStorage = window.localStorage.getItem('utm_campaign')
-        const utm_contentFromLocalStorage = window.localStorage.getItem('utm_content')
-        const utm_termFromLocalStorage = window.localStorage.getItem('utm_term')
-        const utm_mediumFromLocalStorage = window.localStorage.getItem('utm_medium')
+        // const utm_sourceFromLocalStorage = window.localStorage.getItem('utm_source')
+        // const utm_campaignFromLocalStorage = window.localStorage.getItem('utm_campaign')
+        // const utm_contentFromLocalStorage = window.localStorage.getItem('utm_content')
+        // const utm_termFromLocalStorage = window.localStorage.getItem('utm_term')
+        // const utm_mediumFromLocalStorage = window.localStorage.getItem('utm_medium')
 
-        if (utm_sourceFromLocalStorage) {
-            formDataObj['utm_source'] = utm_sourceFromLocalStorage
-        }
+        // if (utm_sourceFromLocalStorage) {
+        //     formDataObj['utm_source'] = utm_sourceFromLocalStorage
+        // }
 
-        if (utm_campaignFromLocalStorage) {
-            formDataObj['utm_campaign'] = utm_campaignFromLocalStorage
-        }
+        // if (utm_campaignFromLocalStorage) {
+        //     formDataObj['utm_campaign'] = utm_campaignFromLocalStorage
+        // }
 
-        if (utm_contentFromLocalStorage) {
-            formDataObj['utm_content'] = utm_contentFromLocalStorage
-        }
+        // if (utm_contentFromLocalStorage) {
+        //     formDataObj['utm_content'] = utm_contentFromLocalStorage
+        // }
 
-        if (utm_termFromLocalStorage) {
-            formDataObj['utm_term'] = utm_termFromLocalStorage
-        }
+        // if (utm_termFromLocalStorage) {
+        //     formDataObj['utm_term'] = utm_termFromLocalStorage
+        // }
 
-        if (utm_mediumFromLocalStorage) {
-            formDataObj['utm_medium'] = utm_mediumFromLocalStorage
-        }
+        // if (utm_mediumFromLocalStorage) {
+        //     formDataObj['utm_medium'] = utm_mediumFromLocalStorage
+        // }
 
-        const paramPartner = window.localStorage.getItem('paramPartner');
-        if (paramPartner) {
-            formDataObj['Affiliate'] = paramPartner;
-            formDataObj['utm_source'] = 'Affiliate'
-            formDataObj['utm_campaign'] = paramPartner
-        } else {
-            // console.log('no paramPartner')
-        }
+        // const paramPartner = window.localStorage.getItem('paramPartner');
+        // if (paramPartner) {
+        //     formDataObj['Affiliate'] = paramPartner;
+        //     formDataObj['utm_source'] = 'Affiliate'
+        //     formDataObj['utm_campaign'] = paramPartner
+        // } else {
+        //     // console.log('no paramPartner')
+        // }
 
 
         const sendObject = `${JSON.stringify(formDataObj).substr(0, JSON.stringify(formDataObj).length - 1)}` + `, "terms": ${agree.checked} }`
@@ -286,37 +285,38 @@ const showError = (input, msg) => {
         XHR.onload = () => {
             if (XHR.readyState === 4) {
                 if (XHR.status === 200 || XHR.status === 201) {
+                    console.log(XHR)
 
-                    window.location.href = 'https://convolo.ai/success';
+                    // window.location.href = 'https://convolo.ai/success';
                     // Google analytics
-                    if (window.dataLayer) {
-                        let sendEvent = "SIGNUP_FORM_SUBMIT"
-                        console.log('window.countryCodeGlobal', window.countryCodeGlobal)
-                        if (window.countryCodeGlobal && euArray && euArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                            sendEvent = "SIGNUP_FORM_SUBMIT_EU"
-                        }
-                        if (window.countryCodeGlobal && naArray && naArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                            sendEvent = "SIGNUP_FORM_SUBMIT_NA"
-                        }
-                        if (window.countryCodeGlobal && meArray && meArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                            sendEvent = "SIGNUP_FORM_SUBMIT_ME"
-                        }
-                        if (window.countryCodeGlobal && asiaArray && asiaArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                            sendEvent = "SIGNUP_FORM_SUBMIT_ASIA"
-                        }
-                        if (window.countryCodeGlobal && latamArray && latamArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                            sendEvent = "SIGNUP_FORM_SUBMIT_LATAM"
-                        }
-                        window.dataLayer.push({event: sendEvent});
-                    }
-                    if ($FPROM) {
-                        $FPROM.trackSignup(
-                            { email: formDataObj.email},
-                            // function(){console.log('Callback received!')}
-                        );
-                    } else {
-                        // console.log('no $FPROM')
-                    }
+                    // if (window.dataLayer) {
+                    //     let sendEvent = "SIGNUP_FORM_SUBMIT"
+                    //     console.log('window.countryCodeGlobal', window.countryCodeGlobal)
+                    //     if (window.countryCodeGlobal && euArray && euArray.includes(window.countryCodeGlobal.toUpperCase())) {
+                    //         sendEvent = "SIGNUP_FORM_SUBMIT_EU"
+                    //     }
+                    //     if (window.countryCodeGlobal && naArray && naArray.includes(window.countryCodeGlobal.toUpperCase())) {
+                    //         sendEvent = "SIGNUP_FORM_SUBMIT_NA"
+                    //     }
+                    //     if (window.countryCodeGlobal && meArray && meArray.includes(window.countryCodeGlobal.toUpperCase())) {
+                    //         sendEvent = "SIGNUP_FORM_SUBMIT_ME"
+                    //     }
+                    //     if (window.countryCodeGlobal && asiaArray && asiaArray.includes(window.countryCodeGlobal.toUpperCase())) {
+                    //         sendEvent = "SIGNUP_FORM_SUBMIT_ASIA"
+                    //     }
+                    //     if (window.countryCodeGlobal && latamArray && latamArray.includes(window.countryCodeGlobal.toUpperCase())) {
+                    //         sendEvent = "SIGNUP_FORM_SUBMIT_LATAM"
+                    //     }
+                    //     window.dataLayer.push({event: sendEvent});
+                    // }
+                    // if ($FPROM) {
+                    //     $FPROM.trackSignup(
+                    //         { email: formDataObj.email},
+                    //         // function(){console.log('Callback received!')}
+                    //     );
+                    // } else {
+                    //     // console.log('no $FPROM')
+                    // }
 
                 } else {
                     errorMes.style.display = "flex";
@@ -325,9 +325,9 @@ const showError = (input, msg) => {
                         if (errorTextMes) {
                             errorTextMes.textContent = responseJson.message
                             if (responseJson.message === 'wrong promo code') {
-                                setTimeout(() => {
-                                    window.location = "https://convolo.ai/success";
-                                }, 2000)
+                                // setTimeout(() => {
+                                //     window.location = "https://convolo.ai/success";
+                                // }, 2000)
                             }
                         } else {
                             // console.log('no errorTextMes')
@@ -339,8 +339,8 @@ const showError = (input, msg) => {
             }
         };
 
-        XHR.open("POST", "https://api.leads.convolo.ai/api/v2/auth/register");
-        XHR.setRequestHeader("Content-type", "application/json");
-        XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
-        XHR.send(sendObject);
+        // XHR.open("POST", "https://api.leads.convolo.ai/api/v2/auth/register-self-onboarding"); 
+        // XHR.setRequestHeader("Content-type", "application/json");
+        // XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
+        // XHR.send(sendObject);
     }
