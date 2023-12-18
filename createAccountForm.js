@@ -154,6 +154,7 @@ const showError = (input, msg) => {
     function checkRequired(inputArr) {
         let check = true
         inputArr.forEach(function(input) {
+            console.log(input)
             if (input && (input.value !== undefined) && (input.value.trim() === '')) {
                 showError(input, `${getFieldName(input)} is required`)
                 check = false
