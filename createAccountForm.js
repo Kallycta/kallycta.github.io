@@ -273,8 +273,8 @@ const showError = (input, msg) => {
 
         FD.delete("terms")
         FD.forEach((value, key) => {
-            console.log(FD[key])
-            console.log(FD[value])
+            console.log(key)
+            console.log(value)
             if(formDataObj[key] === 'state') {
                  formDataObj[key] = key
             } else {
