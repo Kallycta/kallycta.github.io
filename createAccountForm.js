@@ -6,6 +6,7 @@ const companyName = document.querySelector("#Company-name-2");
 const phone = document.querySelector("#phone_number-2");
 const agree = document.querySelector("#terms");
 const selectedState = document.querySelector("#select-field-2")
+connsole.log(selectedState)
 
 const errorMes = document.querySelector(".error-mes");
 const errorTextMes = document.querySelector("#text-error-message");
