@@ -236,7 +236,7 @@ const showError = (input, msg) => {
 
         FD.delete("terms")
         FD.forEach((value, key) => (formDataObj[key] = value));
-         FD.forEach((value, key) => (console.log(value, key);
+         FD.forEach((value, key) => (console.log(value, key)));
         if (window.internationalNumber) {
             // console.log('window.internationalNumber', window.internationalNumber)
             formDataObj['phone_number'] = window.internationalNumber;
