@@ -172,8 +172,11 @@ const showError = (input, msg) => {
         if (select && select?.value) {
             if (select.value === 'State') {
                 showError(select, 'Please choose a state from the dropdown list.');
+                return false
             } else {
                 showSuccess(select);
+                return true
+                
             }
         }
     }
