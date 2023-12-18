@@ -280,7 +280,7 @@ const showError = (input, msg) => {
             }
            
         });
-         FD.forEach((value, key) => (console.log(value, key)));
+       console.log(formDataObj);
         if (window.internationalNumber) {
             // console.log('window.internationalNumber', window.internationalNumber)
             formDataObj['phone_number'] = window.internationalNumber;
