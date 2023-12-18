@@ -12,6 +12,7 @@ console.log(fullName)
 console.log(email)
 console.log(companyName)
 console.log(parentSelect)
+console.log(agree)
 
 
 const errorMes = document.querySelector(".error-mes");
