@@ -335,8 +335,8 @@ const showError = (input, msg) => {
             }
         };
 
-        // XHR.open("POST", "https://api.leads.convolo.ai/api/v2/auth/register-self-onboarding"); 
-        // XHR.setRequestHeader("Content-type", "application/json");
-        // XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
-        // XHR.send(sendObject);
+        XHR.open("POST", "https://api.leads.convolo.ai/api/v2/auth/register-self-onboarding"); 
+        XHR.setRequestHeader("Content-type", "application/json");
+        XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
+        XHR.send(sendObject);
     }
