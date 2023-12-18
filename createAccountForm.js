@@ -276,6 +276,7 @@ const showError = (input, msg) => {
            
         });
        console.log(formDataObj);
+        formDataObj.agree_to_terms = true;
 
         const sendObject = `${JSON.stringify(formDataObj).substr(0, JSON.stringify(formDataObj).length - 1)}` + `, "terms": ${agree.checked} }`
 
