@@ -6,7 +6,13 @@ const companyName = document.querySelector("#Company-name-2");
 const phone = document.querySelector("#phone_number-2");
 const agree = document.querySelector("#terms");
 const selectedState = document.querySelector("#select-field-2")
+const parentSelect = document.querySelector("#parent-select")
 console.log(selectedState)
+console.log(fullName)
+console.log(email)
+console.log(companyName)
+console.log(parentSelect)
+
 
 const errorMes = document.querySelector(".error-mes");
 const errorTextMes = document.querySelector("#text-error-message");
