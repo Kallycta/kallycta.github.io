@@ -263,13 +263,6 @@ const showError = (input, msg) => {
         const XHR = new XMLHttpRequest();
         const FD = new FormData(form);
         const formDataObj = {};
-        // if (window.selectedCountryCode) {
-        //     // console.log('window.selectedCountryCode', window.selectedCountryCode)
-        //     formDataObj['country_code'] = window.selectedCountryCode;
-        // } else {
-        //     // console.log('no window.selectedCountryCode', window.selectedCountryCode)
-        // }
-
 
         FD.delete("terms")
         FD.forEach((value, key) => {
@@ -283,48 +276,6 @@ const showError = (input, msg) => {
            
         });
        console.log(formDataObj);
-        if (window.internationalNumber) {
-            // console.log('window.internationalNumber', window.internationalNumber)
-            formDataObj['phone_number'] = window.internationalNumber;
-        } else {
-            // console.log('no window.internationalNumber', window.internationalNumber)
-        }
-
-        // const utm_sourceFromLocalStorage = window.localStorage.getItem('utm_source')
-        // const utm_campaignFromLocalStorage = window.localStorage.getItem('utm_campaign')
-        // const utm_contentFromLocalStorage = window.localStorage.getItem('utm_content')
-        // const utm_termFromLocalStorage = window.localStorage.getItem('utm_term')
-        // const utm_mediumFromLocalStorage = window.localStorage.getItem('utm_medium')
-
-        // if (utm_sourceFromLocalStorage) {
-        //     formDataObj['utm_source'] = utm_sourceFromLocalStorage
-        // }
-
-        // if (utm_campaignFromLocalStorage) {
-        //     formDataObj['utm_campaign'] = utm_campaignFromLocalStorage
-        // }
-
-        // if (utm_contentFromLocalStorage) {
-        //     formDataObj['utm_content'] = utm_contentFromLocalStorage
-        // }
-
-        // if (utm_termFromLocalStorage) {
-        //     formDataObj['utm_term'] = utm_termFromLocalStorage
-        // }
-
-        // if (utm_mediumFromLocalStorage) {
-        //     formDataObj['utm_medium'] = utm_mediumFromLocalStorage
-        // }
-
-        // const paramPartner = window.localStorage.getItem('paramPartner');
-        // if (paramPartner) {
-        //     formDataObj['Affiliate'] = paramPartner;
-        //     formDataObj['utm_source'] = 'Affiliate'
-        //     formDataObj['utm_campaign'] = paramPartner
-        // } else {
-        //     // console.log('no paramPartner')
-        // }
-
 
         const sendObject = `${JSON.stringify(formDataObj).substr(0, JSON.stringify(formDataObj).length - 1)}` + `, "terms": ${agree.checked} }`
 
@@ -332,7 +283,6 @@ const showError = (input, msg) => {
             if (XHR.readyState === 4) {
                 if (XHR.status === 200 || XHR.status === 201) {
                     console.log(XHR)
-
                     // window.location.href = 'https://convolo.ai/success';
                     // Google analytics
                     // if (window.dataLayer) {
