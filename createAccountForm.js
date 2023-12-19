@@ -51,6 +51,11 @@ const showError = (input, msg) => {
         input.classList.add("error");
         if (formControl) {
             formControl.classList.add("error");
+            const small = formControl.parentElement.querySelector(".extra");
+            console.log(small);
+            if (small) {
+                small.style.display = "block";
+                small.textContent = msg;
         }
     } else {
             const formControl = input.parentElement;
