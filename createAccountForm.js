@@ -45,7 +45,7 @@ const showError = (input, msg) => {
     console.log(input.tagName)
 
     if(input.tagName === 'SELECT') {
-        const formControl = input.parentElement.querySelector(".dropdown");
+        const formControl = document.querySelector("#parent-state-dd");
         console.log(formControl)
         formControl.classList.add("error");
         input.classList.add("error");
