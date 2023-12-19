@@ -98,7 +98,7 @@ const showError = (input, msg) => {
 
     function showSuccess(input) {
         if(input) {
-                    if(input.tagName === 'select') {
+            if(input.tagName === 'select') {
             console.log(input)
         const formControl = parentSelect;
         if (formControl) {
@@ -169,6 +169,7 @@ const showError = (input, msg) => {
     }
 
     function checkSelectedState(select) {
+        console.log(select.value)
         if (select && select?.value) {
             if (select.value === 'State') {
                 showError(select, 'Please choose a state from the dropdown list.');
