@@ -154,15 +154,19 @@ const showError = (input, msg) => {
     function checkSelectedState(select) {
         console.log(select.value)
         if (select && select?.value) {
+        console.log(select && select?.value)
             if (select.value === 'State') {
+                 console.log(select.value === 'State')
                 showError(select, 'Please choose a state from the dropdown list.');
                 return false
             } else {
+                console.log('else')
                 showSuccess(select);
                 return true
                 
             }
         }
+        console.log('not if')
     }
 
 // const checkPasswordMatch = (input1, input2) => {
