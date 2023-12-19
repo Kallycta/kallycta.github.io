@@ -7,27 +7,9 @@ const phone = document.querySelector("#phone_number-2");
 const agree = document.querySelector("#terms");
 const selectedState = document.querySelector("#select-field-2")
 const parentSelect = document.querySelector("#parent-select")
-console.log(selectedState)
-console.log(fullName)
-console.log(email)
-console.log(companyName)
-console.log(parentSelect)
-console.log(agree)
-
 
 const errorMes = document.querySelector(".error-mes");
 const errorTextMes = document.querySelector("#text-error-message");
-
-// const name = document.querySelector("#name");
-const affiliate = document.querySelector("#Affiliate-2");
-console.log(affiliate)
-// const password = document.querySelector("#password");
-// const passwordConfirmation = document.querySelector("#confirm_password");
-
-// const promoCode = document.querySelector("#promo_code-2");
-
-
-
 if (agree) {
     agree.addEventListener('click', () => {
         if (agree.checked) {
@@ -175,17 +157,6 @@ const showError = (input, msg) => {
         console.log('not if')
     }
 
-// const checkPasswordMatch = (input1, input2) => {
-//     if (input1.value !== input2.value) {
-//         showError(input1, "Passwords must match");
-//         return false
-//     } else {
-//         showSuccess(input1);
-//         return true
-//     }
-// };
-
-
     const getFieldName = (input) => {
         const firstLetter = input.id.charAt(0).toUpperCase();
         return firstLetter + input.id.slice(1);
@@ -260,8 +231,6 @@ const showError = (input, msg) => {
 
         FD.delete("terms")
         FD.forEach((value, key) => {
-            console.log(key)
-            console.log(value)
             if(formDataObj[key] === 'state') {
                  formDataObj[key] = key
             } else {
@@ -278,37 +247,8 @@ const showError = (input, msg) => {
             if (XHR.readyState === 4) {
                 if (XHR.status === 200 || XHR.status === 201) {
                     console.log(XHR)
-                    // window.location.href = 'https://convolo.ai/success';
-                    // Google analytics
-                    // if (window.dataLayer) {
-                    //     let sendEvent = "SIGNUP_FORM_SUBMIT"
-                    //     console.log('window.countryCodeGlobal', window.countryCodeGlobal)
-                    //     if (window.countryCodeGlobal && euArray && euArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                    //         sendEvent = "SIGNUP_FORM_SUBMIT_EU"
-                    //     }
-                    //     if (window.countryCodeGlobal && naArray && naArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                    //         sendEvent = "SIGNUP_FORM_SUBMIT_NA"
-                    //     }
-                    //     if (window.countryCodeGlobal && meArray && meArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                    //         sendEvent = "SIGNUP_FORM_SUBMIT_ME"
-                    //     }
-                    //     if (window.countryCodeGlobal && asiaArray && asiaArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                    //         sendEvent = "SIGNUP_FORM_SUBMIT_ASIA"
-                    //     }
-                    //     if (window.countryCodeGlobal && latamArray && latamArray.includes(window.countryCodeGlobal.toUpperCase())) {
-                    //         sendEvent = "SIGNUP_FORM_SUBMIT_LATAM"
-                    //     }
-                    //     window.dataLayer.push({event: sendEvent});
-                    // }
-                    // if ($FPROM) {
-                    //     $FPROM.trackSignup(
-                    //         { email: formDataObj.email},
-                    //         // function(){console.log('Callback received!')}
-                    //     );
-                    // } else {
-                    //     // console.log('no $FPROM')
-                    // }
-
+                    window.location.href = 'https://new.app.convolo.ai/pages/pbx/self-onboarding';
+              
                 } else {
                     errorMes.style.display = "flex";
                     if (XHR.response) {
