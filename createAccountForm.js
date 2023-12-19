@@ -57,6 +57,7 @@ const showError = (input, msg) => {
                 small.style.display = "block";
                 small.textContent = msg;
         }
+        }
     } else {
             const formControl = input.parentElement;
             formControl.classList.add("error");
