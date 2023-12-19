@@ -44,7 +44,7 @@ if (agree) {
 const showError = (input, msg) => {
     console.log(input.tagName)
 
-    if(input.tagName === 'select') {
+    if(input.tagName === 'SELECT') {
         const formControl = input.parentElement.querySelector(".dropdown");
         console.log(formControl)
         formControl.classList.add("error");
