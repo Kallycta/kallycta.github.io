@@ -5,7 +5,8 @@ const email = document.querySelector("#email-2");
 const companyName = document.querySelector("#company_name-3");
 const phone = document.querySelector("#phone_number-2");
 const agree = document.querySelector("#terms");
-const selectedState = document.querySelector("#select-field-2")
+// const selectedState = document.querySelector("#select-field-2")
+const selectedState = null;
 const parentSelect = document.querySelector("#parent-select")
 
 const errorMes = document.querySelector(".error-mes");
