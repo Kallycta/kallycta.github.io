@@ -56,7 +56,7 @@ const showError = (input, msg) => {
                     const smallPhone = smallParent.parentElement.querySelector(".extra");
                     if (smallPhone) {
                         smallPhone.style.display = "block";
-                        smallPhone.textContent = 'Phone not valid';
+                        // smallPhone.textContent = 'Phone not valid';
                     }
                 }
                 const checkbox = formControl.querySelector(".w-checkbox-input");
