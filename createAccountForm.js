@@ -201,7 +201,7 @@ const showError = (input, msg) => {
             // checkRequired([email, password, passwordConfirmation]),
             checkRequired([email, companyName, fullName, users]),
             checkEmail(email),
-            checkSelectedState(selectedState),
+          selectedState && checkSelectedState(selectedState),
             // checkPasswordMatch(passwordConfirmation, password),
             checkPhone(phone),
             checkAgree(agree)
