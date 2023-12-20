@@ -25,7 +25,6 @@ if (agree) {
 }
 
 const showError = (input, msg) => {
-    console.log(input.tagName)
 
     if(input.tagName === 'SELECT') {
         const formControl = document.querySelector("#parent-state-dd");
@@ -38,7 +37,7 @@ const showError = (input, msg) => {
             console.log(small);
             if (small) {
                 small.style.display = "block";
-                small.textContent = msg;
+                // small.textContent = msg;
         }
         }
     } else {
@@ -51,7 +50,7 @@ const showError = (input, msg) => {
                 const small = formControl.parentElement.querySelector(".extra");
                 if (small) {
                     small.style.display = "block";
-                    small.textContent = msg;
+                    // small.textContent = msg;
                 } else {
                     const smallParent = formControl.parentElement;
                     const smallPhone = smallParent.parentElement.querySelector(".extra");
