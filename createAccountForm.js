@@ -248,7 +248,7 @@ const showError = (input, msg) => {
                 if (XHR.status === 200 || XHR.status === 201) {
                     console.log(XHR)
                     
-                    // window.location.href = 'https://new.app.convolo.ai/pages/pbx/self-onboarding';
+                    window.location.href = 'https://new.app.convolo.ai/pages/pbx/self-onboarding';
               
                 } else {
                     errorMes.style.display = "flex";
