@@ -1,4 +1,4 @@
-console.log('start1');
+console.log('start2');
 const form = document.querySelector("#create-account-form");
 const users = document.querySelector('#Users');
 const fullName = document.querySelector('#full_name-2');
@@ -250,6 +250,7 @@ const showError = (input, msg) => {
                     console.log(XHR)
                      console.log(XHR.response)
                     console.log(XHR.responseText)
+                    console.log(XHR.response.token)
                     
                     
 
