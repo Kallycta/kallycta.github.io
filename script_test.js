@@ -249,8 +249,9 @@ const showError = (input, msg) => {
                 if (XHR.status === 200 || XHR.status === 201) {
                     console.log(XHR)
                      console.log(XHR.response)
+                    var myobj = JSON.parse(response)
                     console.log(XHR.responseText)
-                    console.log(XHR.response.token)
+                    console.log(myobj.token)
                     
                     
 
