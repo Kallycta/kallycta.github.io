@@ -252,9 +252,11 @@ const showError = (input, msg) => {
                     var myobj = JSON.parse(XHR.response)
                     console.log(XHR.responseText)
                     console.log(myobj.token)
+                    if(myobj.token) {
+                    window.location.href = `http://localhost:4201/pages/pbx/self-onboarding?is_login=${myobj.token}`
+                    // window.location.href = `https://app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
+                    }
                     
-                    
-
                     // window.location.href = 'https://app.convolo.ai/pages/pbx/self-onboarding';
               
                 } else {
