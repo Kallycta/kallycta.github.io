@@ -224,30 +224,24 @@ const showError = (input, msg) => {
 
 
     function sendData() {
-        errorMes.style.display = "none";
-        const XHR = new XMLHttpRequest();
-        const FD = new FormData(form);
-        const formDataObj = {};
+       //  errorMes.style.display = "none";
+       //  const XHR = new XMLHttpRequest();
+       //  const FD = new FormData(form);
+       //  const formDataObj = {};
 
-        FD.delete("terms")
-        FD.forEach((value, key) => {
-            if(formDataObj[key] === 'state') {
-                 formDataObj[key] = key
-            } else {
-                 formDataObj[key] = value
-            }
+       //  FD.delete("terms")
+       //  FD.forEach((value, key) => {
+       //      if(formDataObj[key] === 'state') {
+       //           formDataObj[key] = key
+       //      } else {
+       //           formDataObj[key] = value
+       //      }
            
-        });
-       console.log(formDataObj);
-        formDataObj.agree_to_terms = true;
+       //  });
+       // console.log(formDataObj);
+       //  formDataObj.agree_to_terms = true;
 
-        const sendObject = `${JSON.stringify(formDataObj).substr(0, JSON.stringify(formDataObj).length - 1)}` + `, "terms": ${agree.checked} }`
-
-        XHR.onload = () => {
-            if (XHR.readyState === 4) {
-                if (XHR.status === 200 || XHR.status === 201) {
-                    console.log(XHR)
-
+        
                     const iframe = document.createElement('IFRAME');
                     iframe.id = 'admin-ifr';
                     iframe.style.display = "none";
@@ -266,26 +260,34 @@ const showError = (input, msg) => {
                     }
                     postCrossDomainMessage('tokenOK')
                 
-                    // window.location.href = 'https://app.convolo.ai/pages/pbx/self-onboarding';
-              
-                } else {
-                    errorMes.style.display = "flex";
-                    if (XHR.response) {
-                        const responseJson = JSON.parse(XHR.response)
-                        if (errorTextMes) {
-                            errorTextMes.textContent = responseJson.message
-                                console.error(errorTextMes);
-                            }
-                        } else {
-                            // console.log('no errorTextMes')
-                        }
-                    }  
-                        // console.log('no XHR.response')
-                }
-        };
 
-        XHR.open("POST", "https://api.leads.convolo.ai/api/v2/auth/register-self-onboarding"); 
-        XHR.setRequestHeader("Content-type", "application/json");
-        XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
-        XHR.send(sendObject);
+        // const sendObject = `${JSON.stringify(formDataObj).substr(0, JSON.stringify(formDataObj).length - 1)}` + `, "terms": ${agree.checked} }`
+
+        // XHR.onload = () => {
+        //     if (XHR.readyState === 4) {
+        //         if (XHR.status === 200 || XHR.status === 201) {
+        //             console.log(XHR)
+
+        //             // window.location.href = 'https://app.convolo.ai/pages/pbx/self-onboarding';
+              
+        //         } else {
+        //             errorMes.style.display = "flex";
+        //             if (XHR.response) {
+        //                 const responseJson = JSON.parse(XHR.response)
+        //                 if (errorTextMes) {
+        //                     errorTextMes.textContent = responseJson.message
+        //                         console.error(errorTextMes);
+        //                     }
+        //                 } else {
+        //                     // console.log('no errorTextMes')
+        //                 }
+        //             }  
+        //                 // console.log('no XHR.response')
+        //         }
+        // };
+
+        // XHR.open("POST", "https://api.leads.convolo.ai/api/v2/auth/register-self-onboarding"); 
+        // XHR.setRequestHeader("Content-type", "application/json");
+        // XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
+        // XHR.send(sendObject);
     } 
