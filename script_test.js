@@ -1,4 +1,4 @@
-
+console.log('start');
 const form = document.querySelector("#create-account-form");
 const users = document.querySelector('#Users');
 const fullName = document.querySelector('#full_name-2');
