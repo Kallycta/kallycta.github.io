@@ -251,9 +251,9 @@ const showError = (input, msg) => {
                     var myobj = JSON.parse(XHR.response)
                     console.log(myobj.token)
                     if(myobj.token) {
-                    window.location.href = `https://app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
+                    window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     } else {
-                           // window.location.href = `https://app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
+                           // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     }
               
                 } else {
