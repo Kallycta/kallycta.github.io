@@ -1,4 +1,4 @@
-console.log('start');
+console.log('start1');
 const form = document.querySelector("#create-account-form");
 const users = document.querySelector('#Users');
 const fullName = document.querySelector('#full_name-2');
@@ -248,6 +248,10 @@ const showError = (input, msg) => {
             if (XHR.readyState === 4) {
                 if (XHR.status === 200 || XHR.status === 201) {
                     console.log(XHR)
+                     console.log(XHR.response)
+                    console.log(XHR.responseText)
+                    
+                    
 
                     // window.location.href = 'https://app.convolo.ai/pages/pbx/self-onboarding';
               
