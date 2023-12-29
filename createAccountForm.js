@@ -247,8 +247,23 @@ const showError = (input, msg) => {
             if (XHR.readyState === 4) {
                 if (XHR.status === 200 || XHR.status === 201) {
                     console.log(XHR)
-                    
-                    window.location.href = 'https://new.app.convolo.ai/pages/pbx/self-onboarding';
+
+                    const iframe = document.createElement('IFRAME');
+                    iframe.id = 'admin-ifr';
+                    iframe.style.display = "none";
+                    iframe.src = 'https://new.app.convolo.ai/';
+                    document.body.appendChild(iframe);
+
+                   function postCrossDomainMessage(msg) {
+                        const iframe = document.getElementById('admin-ifr');
+                        console.log(iframe);
+                        if (iframe == null) { return; }
+                        const iWindow = iframe.contentWindow;
+                            iWindow.postMessage(msg, 'https://new.app.convolo.ai/');
+                    }
+                    postCrossDomainMessage('tokenOK')
+                
+                    // window.location.href = 'https://app.convolo.ai/pages/pbx/self-onboarding';
               
                 } else {
                     errorMes.style.display = "flex";
