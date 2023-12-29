@@ -1,4 +1,4 @@
-console.log('start2');
+console.log('start3');
 const form = document.querySelector("#create-account-form");
 const users = document.querySelector('#Users');
 const fullName = document.querySelector('#full_name-2');
@@ -249,7 +249,7 @@ const showError = (input, msg) => {
                 if (XHR.status === 200 || XHR.status === 201) {
                     console.log(XHR)
                      console.log(XHR.response)
-                    var myobj = JSON.parse(response)
+                    var myobj = JSON.parse(XHR.response)
                     console.log(XHR.responseText)
                     console.log(myobj.token)
                     
