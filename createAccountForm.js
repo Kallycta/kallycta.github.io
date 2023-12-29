@@ -247,8 +247,13 @@ const showError = (input, msg) => {
             if (XHR.readyState === 4) {
                 if (XHR.status === 200 || XHR.status === 201) {
                     console.log(XHR)
-
-                    window.location.href = 'https://app.convolo.ai/pages/pbx/self-onboarding';
+                    var myobj = JSON.parse(XHR.response)
+                    console.log(myobj.token)
+                    if(myobj.token) {
+                    window.location.href = `https://app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
+                    } else {
+                           // window.location.href = `https://app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
+                    }
               
                 } else {
                     errorMes.style.display = "flex";
