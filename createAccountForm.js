@@ -246,7 +246,7 @@ const showError = (input, msg) => {
                     iframe.id = 'admin-ifr';
                     // iframe.style.display = "none";
                     iframe.src = 'https://new.app.convolo.ai/';
-                    iframe.sandbox = "allow-same-origin";
+                    iframe.sandbox = "allow-scripts";
                     document.body.appendChild(iframe);
                     console.log(iframe)
                     
