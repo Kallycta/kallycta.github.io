@@ -1,4 +1,3 @@
-console.log('start script')
 const form = document.querySelector("#create-account-form");
 const users = document.querySelector('#Users');
 const fullName = document.querySelector('#full_name-2');
@@ -29,13 +28,11 @@ const showError = (input, msg) => {
 
     if(input.tagName === 'SELECT') {
         const formControl = document.querySelector("#parent-state-dd");
-        console.log(formControl)
         formControl.classList.add("error");
         input.classList.add("error");
         if (formControl) {
             formControl.classList.add("error");
             const small = formControl.parentElement.querySelector(".extra");
-            console.log(small);
             if (small) {
                 small.style.display = "block";
                 // small.textContent = msg;
@@ -71,7 +68,6 @@ const showError = (input, msg) => {
     function showSuccess(input) {
         if(input) {
             if(input.tagName === 'select') {
-            console.log(input)
         const formControl = parentSelect;
         if (formControl) {
             input.classList.remove('error');
@@ -89,8 +85,6 @@ const showError = (input, msg) => {
         }
 
 } else {
-        console.log(input)
-        console.log(input.parentElement)
         const formControl = input.parentElement;
         if (formControl) {
             input.classList.remove('error');
@@ -129,7 +123,6 @@ const showError = (input, msg) => {
     function checkRequired(inputArr) {
         let check = true
         inputArr.forEach(function(input) {
-            console.log(input)
             if (input && (input.value !== undefined) && (input.value.trim() === '')) {
                 showError(input, `${getFieldName(input)} is required`)
                 check = false
@@ -141,21 +134,16 @@ const showError = (input, msg) => {
     }
 
     function checkSelectedState(select) {
-        console.log(select.value)
         if (select && select?.value) {
-        console.log(select && select?.value)
             if (select.value === 'State') {
-                 console.log(select.value === 'State')
                 showError(select, 'Please choose a state from the dropdown list.');
                 return false
             } else {
-                console.log('else')
                 showSuccess(select);
                 return true
                 
             }
         }
-        console.log('not if')
     }
 
     const getFieldName = (input) => {
@@ -207,7 +195,6 @@ const showError = (input, msg) => {
             checkPhone(phone),
             checkAgree(agree)
         ]
-        console.log(validateResult)
         return validateResult.every(v => v === true)
     };
 
@@ -217,7 +204,6 @@ const showError = (input, msg) => {
         e.stopPropagation();
         if (validateForm()) {
             sendData()
-            console.log('valide form')
         } else {
             console.log('error')
         }
@@ -239,7 +225,6 @@ const showError = (input, msg) => {
             }
            
         });
-       console.log(formDataObj);
         formDataObj.agree_to_terms = true;
         
         const sendObject = `${JSON.stringify(formDataObj).substr(0, JSON.stringify(formDataObj).length - 1)}` + `, "terms": ${agree.checked} }`
@@ -247,12 +232,9 @@ const showError = (input, msg) => {
         XHR.onload = () => {
             if (XHR.readyState === 4) {
                 if (XHR.status === 200 || XHR.status === 201) {
-                    console.log(XHR)
                     var myobj = JSON.parse(XHR.response)
-                    console.log(myobj.token)
                     if(myobj.token) {
-                    // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
-                         window.location.href = `http://localhost:4201/pages/pbx/self-onboarding?is_login=${myobj.token}`
+                        window.location.href = `https://app.convolo.ai/security/login?is_login=${myobj.token}&current_page=/pages/pbx/self-onboarding`
                     } else {
                            // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     }
