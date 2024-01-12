@@ -52,7 +52,7 @@ const showError = (input) => {
 btn.addEventListener('click', (e) => {
     e.preventDefault();
     checkEmail(email);
-    password.value.length > 0 ? console.log('ok) : console.log('ne ok')
+    password.value.length > 0 ? console.log('ok') : console.log('ne ok')
 })
 
 
