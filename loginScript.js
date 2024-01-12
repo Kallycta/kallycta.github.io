@@ -60,8 +60,8 @@ const showError = (input) => {
 
 const validateForm = () => {
     const validateResult = [
-          checkEmail(email);
-    checkPassword(password);
+          checkEmail(email),
+    checkPassword(password)
     ]
     return validateResult.every(v => v === true)
 };
