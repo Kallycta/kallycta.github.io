@@ -70,6 +70,7 @@ btn.addEventListener('click', (e) => {
 
     if(validateForm()) {
         console.log('ok')
+        sendData();
     } else {
         console.log('ne ok')
     }
