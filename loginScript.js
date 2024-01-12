@@ -97,7 +97,6 @@ btn.addEventListener('click', (e) => {
                     console.log(myobj)
                     if(myobj.token) {
                         window.location.href = `http://localhost:4201/?is_login=${myobj.token}&current_page=/pages/dashboard
-                        // window.location.href = `https://new.app.convolo.ai/security/login?is_login=${myobj.token}&current_page=/pages/pbx/self-onboarding`
                     } else {
                            // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     }
