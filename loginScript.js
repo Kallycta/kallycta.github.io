@@ -97,7 +97,7 @@ btn.addEventListener('click', (e) => {
                     console.log(myobj)
                     if(myobj.token) {
                         // window.location.href = `http://localhost:4201/?is_login=${myobj.token}&current_page=/pages/dashboard`
-                      window.location.href = 'http://localhost:4201/security/login?is_login=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDU2NjAxMjAsImljYklkIjo3MDUxOSwidmVyIjoidjEiLCJpYXQiOjE3MDUwNTUzMjB9.-U7BP6DNGHL70qoeev8ukuP-TcKNXEkiBWTBx1UXO8Y&current_page=/pages/dashboard'
+                      window.location.href = `http://localhost:4201/security/login?is_login=${myobj.token}Y&current_page=/pages/dashboard`
                     } else {
                            // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     }
