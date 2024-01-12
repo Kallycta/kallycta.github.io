@@ -4,6 +4,15 @@ const btn = document.querySelector("#btn-submit");
 
 
 
+function checkPassword(input) {
+    if ( password.value.length > 0 ) {
+        showSuccess(input)
+        return true
+    } else {
+        showError(input);
+        return false
+    }
+}
 function checkEmail(input) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(input.value.trim())) {
@@ -49,10 +58,24 @@ const showError = (input) => {
     }
 };
 
+const validateForm = () => {
+    const validateResult = [
+          checkEmail(email);
+    checkPassword(password);
+    ]
+    return validateResult.every(v => v === true)
+};
+
 btn.addEventListener('click', (e) => {
     e.preventDefault();
-    checkEmail(email);
-    password.value.length > 0 ? console.log('ok') : console.log('ne ok')
+
+    if(validateForm) {
+        console.log('ok')
+    } else {
+        console.log('ne ok')
+    }
+ 
+
 })
 
 
