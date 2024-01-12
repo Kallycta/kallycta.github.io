@@ -1,8 +1,7 @@
 const email = document.querySelector("#email-2");
 const password = document.querySelector("#password");
 const btn = document.querySelector("#btn-submit");
-
-
+const errorMes = document.querySelector(".error-mes");
 
 function checkPassword(input) {
     if ( password.value.length > 0 ) {
@@ -74,11 +73,52 @@ btn.addEventListener('click', (e) => {
     } else {
         console.log('ne ok')
     }
- 
-
 })
 
+    function sendData() {
+        errorMes.style.display = "none";
+        const XHR = new XMLHttpRequest();
+        
+        const formDataObj = {
+            password: password.value,
+            email: email.value
+        };
 
+        console.log(formDataObj)
+        
+        const sendObject = JSON.stringify(formDataObj)
+   console.log(sendObject)
+        XHR.onload = () => {
+            if (XHR.readyState === 4) {
+                if (XHR.status === 200 || XHR.status === 201) {
+                    var myobj = JSON.parse(XHR.response)
+                    if(myobj.token) {
+                        window.location.href = `https://new.app.convolo.ai/security/login?is_login=${myobj.token}&current_page=/pages/pbx/self-onboarding`
+                    } else {
+                           // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
+                    }
+              
+                } else {
+                    errorMes.style.display = "flex";
+                    if (XHR.response) {
+                        const responseJson = JSON.parse(XHR.response)
+                        if (errorTextMes) {
+                            errorTextMes.textContent = responseJson.message
+                                console.error(errorTextMes);
+                            }
+                        } else {
+                            // console.log('no errorTextMes')
+                        }
+                    }  
+                        // console.log('no XHR.response')
+                }
+        };
+
+        // XHR.open("POST", "https://api.leads.convolo.ai/api/v1/auth/login"); 
+        // XHR.setRequestHeader("Content-type", "application/json");
+        // XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
+        // XHR.send(sendObject);
+    } 
 
 // https://api.leads.convolo.ai/api/v1/auth/login
 
