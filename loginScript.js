@@ -90,11 +90,13 @@ btn.addEventListener('click', (e) => {
         const sendObject = JSON.stringify(formDataObj)
    console.log(sendObject)
         XHR.onload = () => {
+            console.log(XHR)
             if (XHR.readyState === 4) {
                 if (XHR.status === 200 || XHR.status === 201) {
                     var myobj = JSON.parse(XHR.response)
+                    console.log(myobj)
                     if(myobj.token) {
-                        window.location.href = `https://new.app.convolo.ai/security/login?is_login=${myobj.token}&current_page=/pages/pbx/self-onboarding`
+                        // window.location.href = `https://new.app.convolo.ai/security/login?is_login=${myobj.token}&current_page=/pages/pbx/self-onboarding`
                     } else {
                            // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     }
@@ -115,10 +117,10 @@ btn.addEventListener('click', (e) => {
                 }
         };
 
-        // XHR.open("POST", "https://api.leads.convolo.ai/api/v1/auth/login"); 
-        // XHR.setRequestHeader("Content-type", "application/json");
-        // XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
-        // XHR.send(sendObject);
+        XHR.open("POST", "https://api.leads.convolo.ai/api/v1/auth/login"); 
+        XHR.setRequestHeader("Content-type", "application/json");
+        XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
+        XHR.send(sendObject);
     } 
 
 // https://api.leads.convolo.ai/api/v1/auth/login
