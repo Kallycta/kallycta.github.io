@@ -69,7 +69,7 @@ const validateForm = () => {
 btn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    if(validateForm() {
+    if(validateForm()) {
         console.log('ok')
     } else {
         console.log('ne ok')
