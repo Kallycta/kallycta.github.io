@@ -1,6 +1,6 @@
 const email = document.querySelector("#email-2");
 const password = document.querySelector("#password");
-cosnt btn = document.querySelector("#btn-submit");
+const btn = document.querySelector("#btn-submit");
 
 
 
