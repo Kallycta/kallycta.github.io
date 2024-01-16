@@ -96,8 +96,8 @@ btn.addEventListener('click', (e) => {
                     var myobj = JSON.parse(XHR.response)
                     console.log(myobj)
                     if(myobj.token) {
-                        window.location.href = `http://localhost:4201/?is_login=${myobj.token}&current_page=/pages/dashboard`
-                      // window.location.href = `http://localhost:4201/security/login?is_login=${myobj.token}&current_page=/pages/dashboard`
+                        // window.location.href = `http://localhost:4201/?is_login=${myobj.token}&current_page=/pages/dashboard`
+                      window.location.href = `http://localhost:4201/security/login?is_login=${myobj.token}&current_page=/pages/dashboard`
                     } else {
                            // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     }
