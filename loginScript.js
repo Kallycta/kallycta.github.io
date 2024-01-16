@@ -101,7 +101,7 @@ btn.addEventListener('click', (e) => {
                     } else {
                            // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     }
-              
+              // http://localhost:4201/security/login?is_login=${myobj.token}Y&current_page=/pages/dashboard
                 } else {
                     errorMes.style.display = "flex";
                     if (XHR.response) {
