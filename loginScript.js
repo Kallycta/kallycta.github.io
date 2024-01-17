@@ -69,7 +69,9 @@ const validateForm = () => {
 };
 
 form.addEventListener('sumbit', (e) => {
+    console.log('submit')
     e.preventDefault();
+    e.stopPropagation();
 
     if(validateForm()) {
         console.log('ok')
