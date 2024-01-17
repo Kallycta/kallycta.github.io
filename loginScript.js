@@ -2,6 +2,7 @@ const email = document.querySelector("#email-2");
 const password = document.querySelector("#password");
 const btn = document.querySelector("#btn-submit");
 const errorMes = document.querySelector(".error-mes");
+const form = document.querySelector('#wf-form-Signin-Form');
 
 function checkPassword(input) {
     if ( password.value.length > 0 ) {
@@ -65,7 +66,7 @@ const validateForm = () => {
     return validateResult.every(v => v === true)
 };
 
-btn.addEventListener('click', (e) => {
+form.addEventListener('sumbit', (e) => {
     e.preventDefault();
 
     if(validateForm()) {
