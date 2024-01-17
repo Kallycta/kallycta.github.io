@@ -103,7 +103,7 @@ const validateForm = () => {
                     if(myobj.token) {
                         // window.location.href = `http://localhost:4201/?is_login=${myobj.token}&current_page=/pages/dashboard`
                       // window.location.href = `http://localhost:4201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`
-                        setTimeOut(()=> {
+                        setTimeout(()=> {
                             window.open('/self-onboarding', '_self');
                         }, 1500)
                        
