@@ -4,6 +4,8 @@ const btn = document.querySelector("#btn-submit");
 const errorMes = document.querySelector(".error-mes");
 const form = document.querySelector('#wf-form-Signin-Form');
 
+console.log(form)
+
 function checkPassword(input) {
     if ( password.value.length > 0 ) {
         showSuccess(input)
