@@ -106,7 +106,7 @@ const validateForm = () => {
                         setTimeout(()=> {
                             window.open(`http://localhost:4201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`, '_self');
                             // window.location.href = `http://localhost:4201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`
-                        }, 1000)
+                        }, 500)
                        
                     } else {
                            // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
