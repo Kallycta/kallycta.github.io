@@ -103,7 +103,7 @@ const validateForm = () => {
                     if(myobj.token) {
                         // window.location.href = `http://localhost:4201/?is_login=${myobj.token}&current_page=/pages/dashboard`
                       // window.location.href = `http://localhost:4201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`
-                       window.location.href =  '/self-onboarding';
+                       window.open('/self-onboarding', '_self');
                     } else {
                            // window.location.href = `https://new.app.convolo.ai/pages/pbx/self-onboarding?is_login=${myobj.token}`
                     }
