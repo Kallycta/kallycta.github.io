@@ -68,7 +68,7 @@ const validateForm = () => {
     return validateResult.every(v => v === true)
 };
 
-form.addEventListener('sumbit', (e) => {
+    form.addEventListener("submit",  (e) => {
     console.log('submit')
     e.preventDefault();
     e.stopPropagation();
