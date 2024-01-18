@@ -3,8 +3,72 @@ const message = document.querySelector("#message-check");
 const messageBlock = document.querySelector("#message-block");
 const formBlock = document.querySelector("#containter-form");
 const btn = document.querySelector("#btn-submit"); 
+const form = document.querySelector('#wf-form-Signin-Form');
 
+function checkEmail(input) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(input.value.trim())) {
+        showSuccess(input)
+        return true
+    } else {
+        showError(input, 'Email is not invalid');
+        return false
+    }
+}
 
+function showSuccess(input) {
+    const formControl = input.parentElement;
+    if (formControl) {
+        input.classList.remove('error');
+        formControl.classList.remove('error');
+        const small = formControl.parentElement.querySelector(".extra");
+        if (small) {
+            small.style.display = "none";
+        } 
+    }
+}
+const showError = (input) => {
+    const formControl = input.parentElement;
+    formControl.classList.add("error");
+    input.classList.add("error");
+    if (formControl) {
+        formControl.classList.add("error");
+
+        const small = formControl.parentElement.querySelector(".extra");
+        if (small) {
+            small.style.display = "block";
+            // small.textContent = msg;
+        } else {
+            const smallParent = formControl.parentElement;
+            const smallPhone = smallParent.parentElement.querySelector(".extra");
+            if (smallPhone) {
+                smallPhone.style.display = "block";
+                // smallPhone.textContent = 'Phone not valid';
+            }
+        }
+
+    }
+};
+
+const validateForm = () => {
+    const validateResult = [
+          checkEmail(email),
+    ]
+    return validateResult.every(v => v === true)
+};
+
+    form.addEventListener("submit",  (e) => {
+    console.log('submit')
+    e.preventDefault();
+    e.stopPropagation();
+
+    if(validateForm()) {
+        console.log('ok')
+        // sendData();
+    } else {
+        console.log('ne ok')
+    }
+})
 
 function sendData() {
         errorMes.style.display = "none";
