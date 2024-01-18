@@ -64,7 +64,7 @@ const validateForm = () => {
 
     if(validateForm()) {
         console.log('ok')
-        // sendData();
+        sendData();
     } else {
         console.log('ne ok')
     }
@@ -104,7 +104,7 @@ function sendData() {
                 }
         };
 
-        XHR.open("POST", "https://api.leads.convolo.ai/api/v1/auth/login"); 
+        XHR.open("POST", "https://api.leads.convolo.ai/api/v1/auth/request-pass"); 
         XHR.setRequestHeader("Content-type", "application/json");
         XHR.setRequestHeader("Access-Control-Allow-Origin", "*");
         XHR.send(sendObject);
