@@ -101,11 +101,9 @@ const validateForm = () => {
                     var myobj = JSON.parse(XHR.response)
                     console.log(myobj)
                     if(myobj.token) {
-                        // window.location.href = `http://localhost:4201/?is_login=${myobj.token}&current_page=/pages/dashboard`
-                      // window.location.href = `http://localhost:4201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`
                         setTimeout(()=> {
                             // window.open(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`, '_self');
-                            window.location.replace(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`);
+                            window.location.replace(`https://new.app.convolo.ai/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`);
                         }, 500)
                        
                     } else {
