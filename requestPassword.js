@@ -4,6 +4,7 @@ const messageBlock = document.querySelector("#message-block");
 const formBlock = document.querySelector("#containter-form");
 const btn = document.querySelector("#btn-submit"); 
 const form = document.querySelector('#wf-form-Signin-Form');
+const errorMes = document.querySelector(".error-mes");
 
 function checkEmail(input) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
