@@ -103,8 +103,8 @@ const validateForm = () => {
                     if(myobj.token) {
                         setTimeout(()=> {
                             // window.open(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`, '_self');
-                            window.location.replace(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`);
-                             // window.location.href = `https://app.convolo.ai/security/login?is_login=${myobj.token}&current_page=/pages/pbx/self-onboarding`
+                            // window.location.replace(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`);
+                             window.location.href = `http://localhost:3201/security/login?is_login=${myobj.token}&current_page=/pages/pbx/self-onboarding`
                         }, 500)
                        
                     } else {
