@@ -1,4 +1,12 @@
- function sendData() {
+const email = document.querySelector("#email-3");
+const message = document.querySelector("#message-check");
+const messageBlock = document.querySelector("#message-block");
+const formBlock = document.querySelector("#containter-form");
+const btn = document.querySelector("#btn-submit"); 
+
+
+
+function sendData() {
         errorMes.style.display = "none";
         const XHR = new XMLHttpRequest();
         
