@@ -89,6 +89,14 @@ function sendData() {
                 if (XHR.status === 200 || XHR.status === 201) {
                     var myobj = JSON.parse(XHR.response)
                     console.log(myobj)
+                    if(myobj.success) {
+                        setTimeout(() => {
+                            formBlock.style.display = 'none';
+                            message.textContent = `Reset link sent to ${email.value}. Don't see it? Not in your spam folder? You might have signed up with a different email address. Please contact support@convolo.ai in case of problems.`;
+                            messageBlock.style.display = 'block';
+                            
+                        },400)
+                    }
                 } else {
                     errorMes.style.display = "flex";
                     if (XHR.response) {
