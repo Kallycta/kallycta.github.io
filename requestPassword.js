@@ -16,14 +16,6 @@
                 if (XHR.status === 200 || XHR.status === 201) {
                     var myobj = JSON.parse(XHR.response)
                     console.log(myobj)
-                    if(myobj.token) {
-                        setTimeout(()=> {
-                            // window.open(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`, '_self');
-                            // window.location.href = `http://localhost:4201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`
-                        }, 500)
-                    } else {
-                           
-                    }
                 } else {
                     errorMes.style.display = "flex";
                     if (XHR.response) {
