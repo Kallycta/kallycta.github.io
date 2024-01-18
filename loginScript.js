@@ -104,7 +104,7 @@ const validateForm = () => {
                         setTimeout(()=> {
                             // window.open(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`, '_self');
                             // window.location.replace(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`);
-                             window.location.href = `http://localhost:3201/security/login?is_login=${myobj.token}&current_page=/pages/pbx/self-onboarding`
+                             window.location.href = `http://localhost:3201/security/login?is_login=${myobj.token}&current_page=/pages/dashboard`
                         }, 500)
                        
                     } else {
