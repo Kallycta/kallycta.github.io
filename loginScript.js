@@ -105,7 +105,7 @@ const validateForm = () => {
                       // window.location.href = `http://localhost:4201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`
                         setTimeout(()=> {
                             // window.open(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`, '_self');
-                            window.location.href = `http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`
+                            window.location.replace(`http://localhost:3201/pages/dashboard?is_login=${myobj.token}&current_page=/pages/dashboard`);
                         }, 500)
                        
                     } else {
